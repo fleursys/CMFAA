@@ -1,0 +1,17 @@
+import numpy as np
+
+def rho(w):
+    return w[0]
+
+def rhov(w):
+    rv = [i * rho(w) for i in w[1:-1]]
+    return rv
+
+def e(w):
+    return np.dot(w[1:-1],w[1:-1])*rho(w)/2 + w[2]/(1)
+
+w = [1,2,3]
+
+a = [rho(w), e(w)].insert(rhov(w),1)
+
+print(a)
