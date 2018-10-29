@@ -1,14 +1,16 @@
 import numpy as np
 from InputVariables import nx, ngc
+from FixedVariables import nw
 
 def lamMax(lam):
-    lmax = 0
+    lmax = 0.000000000001
     for i in range(nx + 2*ngc):
-        test = np.abs(lam[i][2])
-        if test > lmax:
-            lmax = test
-        else:
-            lmax = lmax
+        for j in range(nw):
+            test = np.abs(lam[i][j])
+            if test > lmax:
+                lmax = test
+            else:
+                lmax = lmax
     return lmax
 
 def computeTimeStep(lam,dx):
