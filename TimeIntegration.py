@@ -4,19 +4,20 @@ from FixedVariables import gamma, nw, rho, v, p, rhov, e
 import numpy as np
 
 # returns an array with zeros with nx cells plus ngc ghostcells on each end
-def MakeMesh():
+def Grid():
     x = [0]*(nx+2*ngc)
     return x
 
 # defines initial conditions for 'shock', the shock tube problem and 'acoustic', the linear acoustic wave problem.
 # input is an array x with dimensions nx + 2*ngc, output is the maximum run time, dx and an array x with similar dimensions
 
-def initialization(x):
+def initialization():
+    x = Grid()
     if iniCond == 'shock':
         xmin = -0.5
         xmax = 0.5
         tmax = 0.2
-        dx = (xmax-xmin)/nx
+        dx = (xmax-xmin)/(nx-1)
         for i in range(ngc, ngc + nx//2 + 1):
             prim = [8, 0, 8/gamma]
             x[i] = [rho(prim)]
@@ -27,19 +28,19 @@ def initialization(x):
             x[i] = [rho(prim)]
             x[i].extend(rhov(prim))
             x[i].append(e(prim))
-        return tmax, dx, x
+        return tmax, xmax, xmin, dx, x
     elif iniCond == 'acoustic':
         xmin = 0
         xmax = 1
         tmax = 3
-        dx = (xmax - xmin) / nx
+        dx = (xmax - xmin) / (nx-1)
         for i in range(ngc, ngc + nx):
             AcouP = 0.1 + 0.0001*np.exp(-((xmin + (xmax/(nx-1))*(i-2) - 0.5)*(xmin + (xmax/(nx-1))*(i-2) - 0.5))/0.01)
             prim = [AcouP*gamma, 0, AcouP]
             x[i] = [rho(prim)]
             x[i].extend(rhov(prim))
             x[i].append(e(prim))
-        return tmax, dx, x
+        return tmax, xmax, xmin, dx, x
     else:
         print('no valid initial condition')
     return
@@ -66,19 +67,19 @@ def getbc(x):
     else:
         print('no valid boundary condition')
 
-# gives the eigenvalues as a 3 by nx+2*ngc matrix lam
+# gives the eigenvalues as a 3 by nx+2*ngc matrix lam, it also gives the velocity (vlam) and the speed of sound (clam)
 def getEigen(x):
     lam = []
     vlam = []
     clam = []
     for i in range(nx + 2*ngc):
         Cs = np.sqrt((gamma*p(x[i])/rho(x[i])))
-        lam.append([v(x[i]) - Cs, v(x[i]), v(x[i]) + Cs])
-        vlam.append(v(x[i]))
+        lam.append([v(x[i])[0] - Cs, v(x[i])[0], v(x[i])[0] + Cs])
+        vlam.append(v(x[i])[0])
         clam.append(Cs)
     return lam, vlam, clam
 
-# gives the eigenvector matrix for each set of  3 eigenvalues in lam
+# gives the eigenvector matrix for each point in the mesh based on the the eigenvalue array lam
 def getK(lam):
     K = []
     for i in range(nx + 2*ngc):
@@ -87,35 +88,37 @@ def getK(lam):
             K[i].append([1, lam[i][j], (lam[i][j]*lam[i][j])/2])
     return K
 
+# gives the inverse eigenvector matrix for each point in the mesh for the velocity and the speed of sound
 def getKinv(vlam, clam):
-    Kinv = []
+    Kinv = Grid()
     for i in range(nx + 2*ngc):
-        Kinv.append([0,0,0])
-        Kinv[i][0] = [vlam[i]/(2*clam[i]), -1/2*clam[i]-vlam[i]/(clam[i]*clam[i]), 1/(clam[i]*clam[i])]
+        Kinv[i] = [0, 0, 0]
+        Kinv[i][0] = [vlam[i]/(2*clam[i]) + vlam[i]*vlam[i]/(2*clam[i]*clam[i]), -1/(2*clam[i]) - vlam[i]/(clam[i]*clam[i]), 1/(clam[i]*clam[i])]
         Kinv[i][1] = [1 - vlam[i]*vlam[i]/(clam[i]*clam[i]), 2*vlam[i]/(clam[i]*clam[i]), -2/(clam[i]*clam[i])]
-        Kinv[i][2] = [vlam[i]*vlam[i]/(2*clam[i]), -vlam[i]/(clam[i]*clam[i]) + 1/(2*clam[i]), 1/(clam[i]*clam[i])]
+        Kinv[i][2] = [vlam[i]*vlam[i]/(2*clam[i]) - vlam[i]/(2*clam[i]), -vlam[i]/(clam[i]*clam[i]) + 1/(2*clam[i]), 1/(clam[i]*clam[i])]
     return Kinv
 
+# gives the multiplication of K-1 with the conservative variables in each point, resulting in the diagonal variables
 def ConsToDiag(Kinv, x):
+    f = Grid()
     for i in range(nx + 2*ngc):
-        w = [0]*nw
+        f[i] = []
         for j in range(nw):
-            for k in range(nw):
-                w[j] = w[j] + Kinv[i][j][k]*x[i][k]
-        x[i] = w
-    return x
+            f[i].append(Kinv[i][j][0]*x[i][0] + Kinv[i][j][1]*x[i][1] + Kinv[i][j][2]*x[i][2])
+    return f
 
+# gives the multiplication of K with the diagonal variables in each point, resulting in the conservation variables
 def DiagtoCons(K, x):
+    f = Grid()
     for i in range(nx + 2*ngc):
-        w = [0]*nw
+        f[i] = []
         for j in range(nw):
-            for k in range(nw):
-                w[j] = w[j] + K[i][j][k]*x[i][k]
-        x[i] = w
-    return x
+            f[i].append(K[i][0][j]*x[i][0] + K[i][1][j]*x[i][1] + K[i][2][j]*x[i][2])
+    return f
 
+# computes the diagonal variables in the next time step (after dt). The ghostcells are given as zero.
 def getFlux(lam, x, dx, dt):
-    f = [0]*(nx + 2*ngc)
+    f = Grid()
     for l in range(ngc):
         f[l] = [0]*nw
         f[-(l+1)] = [0]*nw
@@ -123,18 +126,19 @@ def getFlux(lam, x, dx, dt):
         f[i+1] = [0]*nw
         for j in range(nw):
             if lam[i+1][j] > 0:
-                f[i+1][j] = x[i+1][j] - dt*lam[i+j][j]*((x[i+1][j]-x[i][j])/dx)
+                f[i + 1][j] = x[i + 1][j] - dt/dx * lam[i + 1][j] * (x[i + 1][j] - x[i][j])
             else:
-                f[i + 1][j] = x[i + 1][j] - dt * lam[i + j][j] * ((x[i + 2][j] - x[i+1][j]) / dx)
+                f[i + 1][j] = x[i + 1][j] - dt/dx * lam[i + 1][j] * (x[i + 2][j] - x[i + 1][j])
     return f
 
-def IntegrateTime(x,dx):
-    lam, vlam, clam = getEigen(x)
-    dt = computeTimeStep(lam,dx)
-    K = getK(lam)
-    Kinv = getKinv(vlam,clam)
-    x = ConsToDiag(Kinv, x)
-    x = getFlux(lam,x,dx,dt)
-    x = DiagtoCons(K, x)
+# computes the conservative variables in the next time step (after dt).
+def IntegrateTime(x, dx):
     x = getbc(x)
-    return dt, x
+    lam, vlam, clam = getEigen(x)
+    dt = computeTimeStep(lam, dx)
+    K = getK(lam)
+    Kinv = getKinv(vlam, clam)
+    diag = ConsToDiag(Kinv, x)
+    flux = getFlux(lam, diag, dx, dt)
+    cons = DiagtoCons(K, flux)
+    return dt, cons
