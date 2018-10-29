@@ -2,6 +2,7 @@ import numpy as np
 
 gamma = 1.4
 nw = 3
+nsnap = 30
 
 # computes the conservative variables from an array w of primitive variables (dimension nw)
 def rho(w):
