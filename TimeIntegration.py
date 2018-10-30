@@ -1,23 +1,19 @@
 from ComputeTimeStep import computeTimeStep
-from InputVariables import nx, ngc, iniCond, bc
-from FixedVariables import gamma, nw, rho, v, p, rhov, e
+from InputVariables import nx, ngc, iniCond
+from FixedVariables import gamma, nw, rho, v, p, rhov, e, bc, xmax, xmin, dx, tmax, csound
 import numpy as np
 
 # returns an array with zeros with nx cells plus ngc ghostcells on each end
-def Grid():
+def make_mesh():
     x = [0]*(nx+2*ngc)
     return x
 
 # defines initial conditions for 'shock', the shock tube problem and 'acoustic', the linear acoustic wave problem.
-# input is an array x with dimensions nx + 2*ngc, output is the maximum run time, dx and an array x with similar dimensions
+# output =
 
 def initialization():
-    x = Grid()
+    x = make_mesh()
     if iniCond == 'shock':
-        xmin = -0.5
-        xmax = 0.5
-        tmax = 0.2
-        dx = (xmax-xmin)/(nx-1)
         for i in range(ngc, ngc + nx//2 + 1):
             prim = [8, 0, 8/gamma]
             x[i] = [rho(prim)]
@@ -28,25 +24,21 @@ def initialization():
             x[i] = [rho(prim)]
             x[i].extend(rhov(prim))
             x[i].append(e(prim))
-        return tmax, xmax, xmin, dx, x
+        return x
     elif iniCond == 'acoustic':
-        xmin = 0
-        xmax = 1
-        tmax = 3
-        dx = (xmax - xmin) / (nx-1)
         for i in range(ngc, ngc + nx):
             AcouP = 0.1 + 0.0001*np.exp(-((xmin + (xmax/(nx-1))*(i-2) - 0.5)*(xmin + (xmax/(nx-1))*(i-2) - 0.5))/0.01)
             prim = [AcouP*gamma, 0, AcouP]
             x[i] = [rho(prim)]
             x[i].extend(rhov(prim))
             x[i].append(e(prim))
-        return tmax, xmax, xmin, dx, x
+        return x
     else:
         print('no valid initial condition')
     return
 
-# defines values for ghost cells for an array x with dimension nx + 2*ngc and returns an array with equal dimensions
-
+# defines values for ghost cells for an array x with dimension nx + 2*ngc and returns the array x with the values of
+# ghostcells added.
 def getbc(x):
     if bc == 'fixed':
         for i in range(ngc):
@@ -67,78 +59,94 @@ def getbc(x):
     else:
         print('no valid boundary condition')
 
-# gives the eigenvalues as a 3 by nx+2*ngc matrix lam, it also gives the velocity (vlam) and the speed of sound (clam)
-def getEigen(x):
+# gives the eigenvalues as a 3 by nx+2*ngc matrix lam
+def get_eigenval(w):
     lam = []
-    vlam = []
-    clam = []
     for i in range(nx + 2*ngc):
-        Cs = np.sqrt((gamma*p(x[i])/rho(x[i])))
-        lam.append([v(x[i])[0] - Cs, v(x[i])[0], v(x[i])[0] + Cs])
-        vlam.append(v(x[i])[0])
-        clam.append(Cs)
-    return lam, vlam, clam
+        C = csound(w[i])
+        V = v(w[i])[0]
+        lam.append([V - C, V, V + C])
+    return lam
 
 # gives the eigenvector matrix for each point in the mesh based on the the eigenvalue array lam
-def getK(lam):
-    K = []
-    for i in range(nx + 2*ngc):
-        K.append([])
-        for j in range(nw):
-            K[i].append([1, lam[i][j], (lam[i][j]*lam[i][j])/2])
+def get_k(w, wdiag):
+    K = [[[] for j in range(nw)] for k in range(nx+2*ngc)]
+    for i in range(nx+2*ngc):
+        V = v(w[i])[0]
+        C = csound(w[i])
+        K[i][0].append(1)
+        K[i][0].append(1)
+        K[i][0].append(1)
+        K[i][1].append(V - C)
+        K[i][1].append(V)
+        K[i][1].append(V + C)
+        K[i][2].append(np.square(V)/2 - C*V + np.square(C)/(gamma-1))
+        K[i][2].append(np.square(V)/2)
+        K[i][2].append(np.square(V)/2 + C*V + np.square(C)/(gamma-1))
     return K
 
 # gives the inverse eigenvector matrix for each point in the mesh for the velocity and the speed of sound
-def getKinv(vlam, clam):
-    Kinv = Grid()
-    for i in range(nx + 2*ngc):
-        Kinv[i] = [0, 0, 0]
-        Kinv[i][0] = [vlam[i]/(2*clam[i]) + vlam[i]*vlam[i]/(2*clam[i]*clam[i]), -1/(2*clam[i]) - vlam[i]/(clam[i]*clam[i]), 1/(clam[i]*clam[i])]
-        Kinv[i][1] = [1 - vlam[i]*vlam[i]/(clam[i]*clam[i]), 2*vlam[i]/(clam[i]*clam[i]), -2/(clam[i]*clam[i])]
-        Kinv[i][2] = [vlam[i]*vlam[i]/(2*clam[i]) - vlam[i]/(2*clam[i]), -vlam[i]/(clam[i]*clam[i]) + 1/(2*clam[i]), 1/(clam[i]*clam[i])]
-    return Kinv
+def get_kinv(w):
+    kinv = [[[] for j in range(nw)] for k in range(nx+2*ngc)]
+    for i in range(nx+2*ngc):
+        V = v(w[i])[0]
+        C = csound(w[i])
+        G = gamma-1
+        kinv[i][0].append(V / (2 * C) + np.square(V) * G / (4 * np.square(C)))
+        kinv[i][0].append(-1 / (2 * C) - V * G / (2 * np.square(C)))
+        kinv[i][0].append(G / (2 * np.square(C)))
+        kinv[i][1].append(1 - np.square(V) * G / (2 * np.square(C)))
+        kinv[i][1].append(V * G / np.square(C))
+        kinv[i][1].append(-G / np.square(C))
+        kinv[i][2].append(-V / (2 * C) + np.square(V) * G / (4 * np.square(C)))
+        kinv[i][2].append(1 / (2 * C) - V * G / (2 * np.square(C)))
+        kinv[i][2].append(G / (2 * np.square(C)))
+    return kinv
 
-# gives the multiplication of K-1 with the conservative variables in each point, resulting in the diagonal variables
-def ConsToDiag(Kinv, x):
-    f = Grid()
-    for i in range(nx + 2*ngc):
-        f[i] = []
-        for j in range(nw):
-            f[i].append(Kinv[i][j][0]*x[i][0] + Kinv[i][j][1]*x[i][1] + Kinv[i][j][2]*x[i][2])
-    return f
+# multiplicates Kinv with the conservative variables (w) in each point, resulting in the diagonal variables
+def ConsToDiag(w):
+    kinv = get_kinv(w)
+    wdiag = [[0 for l in range(nw)] for m in range(nx+ngc*2)]
+    for i in range(nx+2*ngc):
+        for j in range(3):
+            for k in range(3):
+                wdiag[i][j] += kinv[i][j][k] * w[i][k]
+    return wdiag
 
-# gives the multiplication of K with the diagonal variables in each point, resulting in the conservation variables
-def DiagtoCons(K, x):
-    f = Grid()
-    for i in range(nx + 2*ngc):
-        f[i] = []
-        for j in range(nw):
-            f[i].append(K[i][0][j]*x[i][0] + K[i][1][j]*x[i][1] + K[i][2][j]*x[i][2])
-    return f
+# multiplicates K with the diagonal variables (wdiag) in each point, resulting in the conservation variables
+def DiagtoCons(w, wdiag):
+    K = get_k(w, wdiag)
+    w = [[0 for l in range(nw)] for m in range(nx+ngc*2)]
+    for i in range(nx+2*ngc):
+        for j in range(3):
+            for k in range(3):
+                w[i][j] += K[i][j][k] * wdiag[i][k]
+    return w
 
-# computes the diagonal variables in the next time step (after dt). The ghostcells are given as zero.
-def getFlux(lam, x, dx, dt):
-    f = Grid()
-    for l in range(ngc):
-        f[l] = [0]*nw
-        f[-(l+1)] = [0]*nw
+# computes the fluxes in the first order upwind scheme (based on the sign of the eigenvalues)
+def get_flux(wdiag, lam):
+    f_upwind = [[0 for l in range(nw)] for m in range(nx+ngc*2)]
     for i in range(nx):
-        f[i+1] = [0]*nw
         for j in range(nw):
             if lam[i+1][j] > 0:
-                f[i + 1][j] = x[i + 1][j] - dt/dx * lam[i + 1][j] * (x[i + 1][j] - x[i][j])
+                f_upwind[i + 1][j] = -lam[i][j] * (wdiag[i + 1][j] - wdiag[i][j]) / dx
+            elif lam[i+1][j] < 0:
+                f_upwind[i + 1][j] = -lam[i][j] * (wdiag[i + 2][j] - wdiag[i + 1][j]) / dx
             else:
-                f[i + 1][j] = x[i + 1][j] - dt/dx * lam[i + 1][j] * (x[i + 2][j] - x[i + 1][j])
-    return f
+                f_upwind[i + 1][j] = 0
+    return f_upwind
 
 # computes the conservative variables in the next time step (after dt).
 def IntegrateTime(x, dx):
-    x = getbc(x)
-    lam, vlam, clam = getEigen(x)
-    dt = computeTimeStep(lam, dx)
-    K = getK(lam)
-    Kinv = getKinv(vlam, clam)
-    diag = ConsToDiag(Kinv, x)
-    flux = getFlux(lam, diag, dx, dt)
-    cons = DiagtoCons(K, flux)
-    return dt, cons
+    w = getbc(x)
+    lam = get_eigenval(w)
+    wdiag = ConsToDiag(w)
+    f_upwind = get_flux(wdiag, lam)
+    dt = computeTimeStep(lam,dx)
+    wdiag_adv = [[0 for l in range(nw)] for m in range(nx+ngc*2)]
+    for i in range(nx):
+        for j in range(nw):
+            wdiag_adv[i+1][j] = wdiag[i+1][j] + dt*f_upwind[i+1][j]
+    w_adv = DiagtoCons(w, wdiag_adv)
+    return dt, w_adv
+
