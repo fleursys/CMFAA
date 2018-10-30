@@ -1,5 +1,23 @@
-x = [0]*10
-for i in range(10):
-    x[i] = 1
+import numpy as np
+V = 2
+C = 3
+gamma = 2
 
-print(x)
+nx = 5
+ngc = 0
+nw = 3
+
+kinv = [[[] for j in range(nw)] for k in range(nx+2*ngc)]
+for i in range(nx+2*ngc):
+    G = gamma-1
+    kinv[i][0].append(V / (2 * C) + np.square(V) * G / (4 * np.square(C)))
+    kinv[i][0].append(-1 / (2 * C) - V * G / (2 * np.square(C)))
+    kinv[i][0].append(G / (2 * np.square(C)))
+    kinv[i][1].append(1 - np.square(V) * G / (2 * np.square(C)))
+    kinv[i][1].append(V * G / np.square(C))
+    kinv[i][1].append(-G / np.square(C))
+    kinv[i][2].append(-V / (2 * C) + np.square(V) * G / (4 * np.square(C)))
+    kinv[i][2].append(1 / (2 * C) - V * G / (2 * np.square(C)))
+    kinv[i][2].append(G / (2 * np.square(C)))
+
+print(kinv)
