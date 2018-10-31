@@ -4,35 +4,44 @@ from FixedVariables import gamma, nw, rho, v, p, rhov, e, bc, xmax, xmin, dx, tm
 import numpy as np
 
 # returns an array with zeros with nx cells plus ngc ghostcells on each end
-def make_mesh():
-    x = [0]*(nx+2*ngc)
+def make_mesh(xmin, xmax, dx):
+    x = []
+    for i in range(ngc):
+        x.append(0)
+    x.append(xmin)
+    for j in range(ngc+1, ngc+nx-1):
+        x.append(x[j-1]+dx)
+    x.append(xmax)
+    for k in range(ngc):
+        x.append(0)
     return x
 
 # defines initial conditions for 'shock', the shock tube problem and 'acoustic', the linear acoustic wave problem.
 # output =
 
 def initialization():
-    x = make_mesh()
+    x = make_mesh(xmin, xmax, dx)
+    w = [[] for m in range(nx+ngc*2)]
     if iniCond == 'shock':
         for i in range(ngc, ngc + nx//2 + 1):
             prim = [8, 0, 8/gamma]
-            x[i] = [rho(prim)]
-            x[i].extend(rhov(prim))
-            x[i].append(e(prim))
+            w[i].append(rho(prim))
+            w[i].extend(rhov(prim))
+            w[i].append(e(prim))
         for i in range(ngc + nx//2 + 1, nx + ngc):
             prim = [1, 0, 1]
-            x[i] = [rho(prim)]
-            x[i].extend(rhov(prim))
-            x[i].append(e(prim))
-        return x
+            w[i].append(rho(prim))
+            w[i].extend(rhov(prim))
+            w[i].append(e(prim))
+        return w
     elif iniCond == 'acoustic':
         for i in range(ngc, ngc + nx):
-            AcouP = 0.1 + 0.0001*np.exp(-((xmin + (xmax/(nx-1))*(i-2) - 0.5)*(xmin + (xmax/(nx-1))*(i-2) - 0.5))/0.01)
+            AcouP = 0.1 + 0.001*np.exp(- np.square(x[i]-0.5)/0.01)
             prim = [AcouP*gamma, 0, AcouP]
-            x[i] = [rho(prim)]
-            x[i].extend(rhov(prim))
-            x[i].append(e(prim))
-        return x
+            w[i].append(rho(prim))
+            w[i].extend(rhov(prim))
+            w[i].append(e(prim))
+        return w
     else:
         print('no valid initial condition')
     return
@@ -69,7 +78,7 @@ def get_eigenval(w):
     return lam
 
 # gives the eigenvector matrix for each point in the mesh based on the the eigenvalue array lam
-def get_k(w, wdiag):
+def get_k(w):
     K = [[[] for j in range(nw)] for k in range(nx+2*ngc)]
     for i in range(nx+2*ngc):
         V = v(w[i])[0]
@@ -115,25 +124,25 @@ def ConsToDiag(w):
 
 # multiplicates K with the diagonal variables (wdiag) in each point, resulting in the conservation variables
 def DiagtoCons(w, wdiag):
-    K = get_k(w, wdiag)
-    w = [[0 for l in range(nw)] for m in range(nx+ngc*2)]
+    K = get_k(w)
+    w2 = [[0 for l in range(nw)] for m in range(nx+ngc*2)]
     for i in range(nx+2*ngc):
         for j in range(3):
             for k in range(3):
-                w[i][j] += K[i][j][k] * wdiag[i][k]
-    return w
+                w2[i][j] += K[i][j][k] * wdiag[i][k]
+    return w2
 
 # computes the fluxes in the first order upwind scheme (based on the sign of the eigenvalues)
 def get_flux(wdiag, lam):
     f_upwind = [[0 for l in range(nw)] for m in range(nx+ngc*2)]
-    for i in range(nx):
+    for i in range(ngc, nx + ngc):
         for j in range(nw):
-            if lam[i+1][j] > 0:
-                f_upwind[i + 1][j] = -lam[i][j] * (wdiag[i + 1][j] - wdiag[i][j]) / dx
+            if lam[i][j] > 0:
+                f_upwind[i][j] = (-1) * lam[i][j] * (wdiag[i][j] - wdiag[i - 1][j]) / dx
             elif lam[i+1][j] < 0:
-                f_upwind[i + 1][j] = -lam[i][j] * (wdiag[i + 2][j] - wdiag[i + 1][j]) / dx
+                f_upwind[i][j] = (-1) * lam[i][j] * (wdiag[i + 1][j] - wdiag[i][j]) / dx
             else:
-                f_upwind[i + 1][j] = 0
+                f_upwind[i][j] = 0
     return f_upwind
 
 # computes the conservative variables in the next time step (after dt).
@@ -142,11 +151,11 @@ def IntegrateTime(x, dx):
     lam = get_eigenval(w)
     wdiag = ConsToDiag(w)
     f_upwind = get_flux(wdiag, lam)
-    dt = computeTimeStep(lam,dx)
+    dt = computeTimeStep(lam, dx)
     wdiag_adv = [[0 for l in range(nw)] for m in range(nx+ngc*2)]
-    for i in range(nx):
+    for i in range(ngc, nx+ngc):
         for j in range(nw):
-            wdiag_adv[i+1][j] = wdiag[i+1][j] + dt*f_upwind[i+1][j]
+            wdiag_adv[i][j] = wdiag[i][j] + dt*f_upwind[i][j]
     w_adv = DiagtoCons(w, wdiag_adv)
     return dt, w_adv
 
