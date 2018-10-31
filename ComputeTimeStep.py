@@ -3,7 +3,7 @@ from InputVariables import nx, ngc
 from FixedVariables import nw
 
 def cmax(lam):
-    lmax = 0.000000000001
+    lmax = 0
     for i in range(nx + 2*ngc):
         for j in range(nw):
             test = np.abs(lam[i][j])
@@ -15,5 +15,5 @@ def cmax(lam):
 
 def computeTimeStep(lam,dx):
     lamda = cmax(lam)
-    return dx/lamda
+    return dx/(lamda+1)
 
