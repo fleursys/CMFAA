@@ -3,7 +3,7 @@ from InputVariables import iniCond, nx
 
 gamma = 1.4
 nw = 3
-nsnap = 30
+nsnap = 60
 
 # determines the boundary conditions, xmin, xmax, dx and tmax from the initial condition
 if iniCond == 'acoustic':
@@ -11,7 +11,7 @@ if iniCond == 'acoustic':
     xmin = 0
     xmax = 1
     dx = (xmax - xmin) / (nx - 1)
-    tmax = 3
+    tmax = 30
 elif iniCond == 'shock':
     bc = 'fixed'
     xmin = -0.5
@@ -28,7 +28,7 @@ def rhov(w):
     return rv
 
 def e(w):
-    return np.dot(w[1:-1],w[1:-1])*rho(w)/2 + w[-1]/(gamma-1)
+    return np.square(np.dot(w[1:-1], w[1:-1]))*rho(w)/2 + w[-1]/(gamma-1)
 
 # computes the primitive variables and the speed of sound from an array w of primitive variables (dimension nw)
 
@@ -37,7 +37,7 @@ def v(w):
     return speed
 
 def p(w):
-    return (gamma-1)*np.dot(w[1:-1], w[1:-1])/(2*rho(w)) + w[-1]
+    return (gamma-1)*(-np.square(np.dot(w[1:-1], w[1:-1]))/(2*rho(w)) + w[-1])
 
 def csound(w):
     return np.sqrt((gamma*p(w)/rho(w)))
