@@ -1,23 +1,23 @@
 import numpy as np
-V = 2
-C = 3
-gamma = 2
 
-nx = 5
-ngc = 0
-nw = 3
+nx = 10
+ngc = 1
 
-kinv = [[[] for j in range(nw)] for k in range(nx+2*ngc)]
-for i in range(nx+2*ngc):
-    G = gamma-1
-    kinv[i][0].append(V / (2 * C) + np.square(V) * G / (4 * np.square(C)))
-    kinv[i][0].append(-1 / (2 * C) - V * G / (2 * np.square(C)))
-    kinv[i][0].append(G / (2 * np.square(C)))
-    kinv[i][1].append(1 - np.square(V) * G / (2 * np.square(C)))
-    kinv[i][1].append(V * G / np.square(C))
-    kinv[i][1].append(-G / np.square(C))
-    kinv[i][2].append(-V / (2 * C) + np.square(V) * G / (4 * np.square(C)))
-    kinv[i][2].append(1 / (2 * C) - V * G / (2 * np.square(C)))
-    kinv[i][2].append(G / (2 * np.square(C)))
+def make_mesh(xmin, xmax):
+    dx = (xmax - xmin)/(nx-1)
+    x = []
+    for i in range(ngc):
+        x.append(0)
+    x.append(xmin)
+    for j in range(ngc+1, ngc+nx-1):
+        x.append(x[j-1]+dx)
+    x.append(xmax)
+    for k in range(ngc):
+        x.append(0)
+    return x
 
-print(kinv)
+x = make_mesh(0,1)
+
+print(x)
+
+AcouP = 0.1 + 0.001*np.exp(- np.square(x[i]-0.5)/np.square(0.1))
