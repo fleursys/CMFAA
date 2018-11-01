@@ -1,10 +1,11 @@
 from ComputeTimeStep import computeTimeStep
-from InputVariables import nx, ngc, iniCond
-from FixedVariables import gamma, nw, rho, v, p, rhov, e, bc, xmax, xmin, dx, tmax, csound
+from InputVariables import ngc, iniCond
+from FixedVariables import gamma, nw, rho, v, p, rhov, e, bc, xmax, xmin, tmax, csound
 import numpy as np
 
 # returns an array with zeros with nx cells plus ngc ghostcells on each end
-def make_mesh(xmin, xmax, dx):
+def make_mesh(xmin, xmax, nx):
+    dx = (xmax - xmin) / (nx - 1)
     x = []
     for i in range(ngc):
         x.append(0)
@@ -19,16 +20,16 @@ def make_mesh(xmin, xmax, dx):
 # defines initial conditions for 'shock', the shock tube problem and 'acoustic', the linear acoustic wave problem.
 # output =
 
-def initialization():
-    x = make_mesh(xmin, xmax, dx)
+def initialization(nx):
+    x = make_mesh(xmin, xmax, nx)
     w = [[] for m in range(nx+ngc*2)]
     if iniCond == 'shock':
-        for i in range(ngc, ngc + nx//2 + 1):
+        for i in range(0, ngc + nx//2 + 1):
             prim = [8, 0, 8/gamma]
             w[i].append(rho(prim))
             w[i].extend(rhov(prim))
             w[i].append(e(prim))
-        for i in range(ngc + nx//2 + 1, nx + ngc):
+        for i in range(ngc + nx//2 + 1, nx + 2*ngc):
             prim = [1, 0, 1]
             w[i].append(rho(prim))
             w[i].extend(rhov(prim))
@@ -50,15 +51,6 @@ def initialization():
 # ghostcells added.
 def getbc(x):
     if bc == 'fixed':
-        for i in range(ngc):
-            prim = [8, 0, 8 / gamma]
-            x[i] = [rho(prim)]
-            x[i].extend(rhov(prim))
-            x[i].append(e(prim))
-            prim2 = [1, 0, 1]
-            x[-(i+1)] = [rho(prim2)]
-            x[-(i+1)].extend(rhov(prim2))
-            x[-(i+1)].append(e(prim2))
         return x
     elif bc == 'periodic':
         for i in range(ngc):
@@ -69,7 +61,7 @@ def getbc(x):
         print('no valid boundary condition')
 
 # gives the eigenvalues as a 3 by nx+2*ngc matrix lam
-def get_eigenval(w):
+def get_eigenval(w, nx):
     lam = []
     for i in range(nx + 2*ngc):
         C = csound(w[i])
@@ -78,7 +70,7 @@ def get_eigenval(w):
     return lam
 
 # gives the eigenvector matrix for each point in the mesh based on the the eigenvalue array lam
-def get_k(w):
+def get_k(w, nx):
     K = [[[] for j in range(nw)] for k in range(nx+2*ngc)]
     for i in range(nx+2*ngc):
         V = v(w[i])[0]
@@ -95,7 +87,7 @@ def get_k(w):
     return K
 
 # gives the inverse eigenvector matrix for each point in the mesh for the velocity and the speed of sound
-def get_kinv(w):
+def get_kinv(w, nx):
     kinv = [[[] for j in range(nw)] for k in range(nx+2*ngc)]
     for i in range(nx+2*ngc):
         V = v(w[i])[0]
@@ -113,8 +105,8 @@ def get_kinv(w):
     return kinv
 
 # multiplicates Kinv with the conservative variables (w) in each point, resulting in the diagonal variables
-def ConsToDiag(w):
-    kinv = get_kinv(w)
+def ConsToDiag(w, nx):
+    kinv = get_kinv(w, nx)
     wdiag = [[0 for l in range(nw)] for m in range(nx+ngc*2)]
     for i in range(nx+2*ngc):
         for j in range(3):
@@ -123,8 +115,8 @@ def ConsToDiag(w):
     return wdiag
 
 # multiplicates K with the diagonal variables (wdiag) in each point, resulting in the conservation variables
-def DiagtoCons(w, wdiag):
-    K = get_k(w)
+def DiagtoCons(w, wdiag, nx):
+    K = get_k(w, nx)
     w2 = [[0 for l in range(nw)] for m in range(nx+ngc*2)]
     for i in range(nx+2*ngc):
         for j in range(3):
@@ -133,29 +125,30 @@ def DiagtoCons(w, wdiag):
     return w2
 
 # computes the fluxes in the first order upwind scheme (based on the sign of the eigenvalues)
-def get_flux(wdiag, lam):
+def get_flux(wdiag, lam, nx, dx):
     f_upwind = [[0 for l in range(nw)] for m in range(nx+ngc*2)]
     for i in range(ngc, nx + ngc):
         for j in range(nw):
             if lam[i][j] > 0:
                 f_upwind[i][j] = (-1) * lam[i][j] * (wdiag[i][j] - wdiag[i - 1][j]) / dx
-            elif lam[i+1][j] < 0:
+            elif lam[i][j] < 0:
                 f_upwind[i][j] = (-1) * lam[i][j] * (wdiag[i + 1][j] - wdiag[i][j]) / dx
             else:
                 f_upwind[i][j] = 0
     return f_upwind
 
 # computes the conservative variables in the next time step (after dt).
-def IntegrateTime(x, dx):
+def IntegrateTime(x, nx):
+    dx = (xmax - xmin) / (nx - 1)
     w = getbc(x)
-    lam = get_eigenval(w)
-    wdiag = ConsToDiag(w)
-    f_upwind = get_flux(wdiag, lam)
-    dt = computeTimeStep(lam, dx)
+    lam = get_eigenval(w, nx)
+    wdiag = ConsToDiag(w, nx)
+    f_upwind = get_flux(wdiag, lam, nx, dx)
+    dt = computeTimeStep(lam, dx, nx)
     wdiag_adv = [[0 for l in range(nw)] for m in range(nx+ngc*2)]
-    for i in range(ngc, nx+ngc):
+    for i in range(nx + ngc*2):
         for j in range(nw):
             wdiag_adv[i][j] = wdiag[i][j] + dt*f_upwind[i][j]
-    w_adv = DiagtoCons(w, wdiag_adv)
+    w_adv = DiagtoCons(w, wdiag_adv, nx)
     return dt, w_adv
 
