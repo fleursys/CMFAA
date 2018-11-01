@@ -1,0 +1,42 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{babel}[English]
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{subfiles}
+
+\usepackage{mathpazo}
+\linespread{1.05}
+
+\title{Implementation of a finite difference 1st order upwind scheme to solve the one-dimensional ideal hydrodynamic equations}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+In this report the one-dimensional hydrodynamic equations will be numerically solved by using a finite difference 1st order upwind scheme. The implementation will be checked by using two test cases. First, the sod shock problem, where the initial state has a discontinuity and second the isothermal acoustic wave, where the initial conditions are smooth. 
+
+\section{Problem statement and preliminaries}
+The ideal hydrodynamic equations in one dimension are the conservation laws for $\rho$, the mass density, $\rho v$, momentum and $e$ total energy. They can be written in matrix form as:
+\begin{align}
+\partial_{t}\left(\textbf{U}\right) + \partial_{x}\textbf{F}\left(\textbf{U}\right) = 0 \\
+\partial_{t}\begin{pmatrix} \rho \\
+\rho v \\
+e
+\end{pmatrix}
++
+\partial_{x}\begin{pmatrix} \rho v \\
+\rho v^{2} + P \\
+\left((e + P) v\right)
+\end{pmatrix} = 0 \label{cons_1D}
+\end{align}
+
+To solve these equations numerically 
+\section{Numerical implementation}
+
+\subsection{Results}
+
+\subsection{Convergence Analysis}
+
+\end{document}
