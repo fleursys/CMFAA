@@ -2,7 +2,8 @@ import numpy as np
 from InputVariables import nx, ngc
 from FixedVariables import nw
 
-def cmax(lam):
+
+def cmax(lam, nx):
     lmax = 0
     for i in range(nx + 2*ngc):
         for j in range(nw):
@@ -13,7 +14,7 @@ def cmax(lam):
                 lmax = lmax
     return lmax
 
-def computeTimeStep(lam,dx):
-    lamda = cmax(lam)
-    return dx/(lamda+1)
+def computeTimeStep(lam, dx, nx):
+    lamda = cmax(lam, nx)
+    return dx/(lamda)
 
