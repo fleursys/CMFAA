@@ -1,13 +1,8 @@
-from InputVariables import nx
 import numpy as np
+from UpwindSolver import upwind_solver
+from AnalyticSolution import analytic_solver
 
-def AnalyticShock():
-    a_sol = []
-    for i in range(nx):
-        a_sol.append(1)
-    return a_sol
-
-def max_error(num_sol, a_sol):
+def max_error(num_sol, a_sol, nx):
     max = 0
     for i in range(nx):
         test = np.abs(num_sol[i] - a_sol[i])
@@ -15,7 +10,24 @@ def max_error(num_sol, a_sol):
             max = test
     return max
 
+def N(nu):
+    return np.power(2, nu)
 
+def EOC(nu):
+    num1 = upwind_solver(N(nu-1))[-1]
+    ana1 = analytic_solver(N(nu-1), 0.2)
+    num2 = upwind_solver(N(nu))[-1]
+    ana2 = analytic_solver(N(nu), 0.2)
+    err1 = max_error(num1, ana1, N(nu-1))
+    err2 = max_error(num2, ana2, N(nu))
+    eoc = np.log2(err2/err1) / np.log2(N(nu - 1)/N(nu))
+    return eoc
+
+def cv_and_conquer():
+    cv = []
+    for nu in range(2,10):
+        cv.append(EOC(nu))
+    return cv
 
 
 
