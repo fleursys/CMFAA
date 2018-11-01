@@ -1,23 +1,7 @@
 import numpy as np
 
-nx = 10
-ngc = 1
 
-def make_mesh(xmin, xmax):
-    dx = (xmax - xmin)/(nx-1)
-    x = []
-    for i in range(ngc):
-        x.append(0)
-    x.append(xmin)
-    for j in range(ngc+1, ngc+nx-1):
-        x.append(x[j-1]+dx)
-    x.append(xmax)
-    for k in range(ngc):
-        x.append(0)
-    return x
+a = [[1,2], [3,4], [5,6]]
 
-x = make_mesh(0,1)
-
-print(x)
-
-AcouP = 0.1 + 0.001*np.exp(- np.square(x[i]-0.5)/np.square(0.1))
+b = [a[i][0] for i in range(3)]
+print(b)
