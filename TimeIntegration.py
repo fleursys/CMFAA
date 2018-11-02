@@ -2,7 +2,6 @@ from ComputeTimeStep import computeTimeStep
 from InputVariables import ngc, iniCond
 from FixedVariables import gamma, nw, rho, v, rhov, e, bc, xmax, xmin, csound, p, G
 import numpy as np
-from decimal import *
 
 # returns an array with zeros with nx cells plus ngc ghostcells on each end
 def make_mesh(xmin, xmax, nx):
@@ -55,8 +54,8 @@ def getbc(x):
         return x
     elif bc == 'periodic':
         for i in range(ngc):
-            x[i] = x[ngc]
-            x[-(i+1)] = x[-ngc-1]
+            x[i] = x[-ngc-1]
+            x[-(i+1)] = x[ngc]
         return x
     else:
         print('no valid boundary condition')
@@ -86,7 +85,6 @@ def get_k(w, nx):
         K[i][2].append(np.square(V)/2)
         K[i][2].append(np.square(V)/2 + C*V + np.square(C)/ G)
     return K
-
 
 # gives the inverse eigenvector matrix for each point in the mesh for the velocity and the speed of sound
 def get_kinv(w, nx):
@@ -131,9 +129,9 @@ def get_flux(wdiag, lam, nx, dx):
     for i in range(ngc, nx + ngc):
         for j in range(nw):
             if lam[i][j] > 0:
-                f_upwind[i][j] = - lam[i][j] * (wdiag[i][j] - wdiag[i - 1][j]) / dx
+                f_upwind[i][j] = (lam[i][j] * wdiag[i][j] - lam[i - 1][j] * wdiag[i - 1][j]) / dx
             elif lam[i][j] < 0:
-                f_upwind[i][j] = - lam[i][j] * (wdiag[i + 1][j] - wdiag[i][j]) / dx
+                f_upwind[i][j] = (lam[i+1][j] * wdiag[i + 1][j] - lam[i][j] * wdiag[i][j]) / dx
             else:
                 f_upwind[i][j] = 0
     return f_upwind
@@ -149,7 +147,6 @@ def IntegrateTime(x, nx):
     wdiag_adv = [[0 for l in range(nw)] for m in range(nx+ngc*2)]
     for i in range(nx + ngc*2):
         for j in range(nw):
-            wdiag_adv[i][j] = wdiag[i][j] + dt*f_upwind[i][j]
+            wdiag_adv[i][j] = wdiag[i][j] - dt*f_upwind[i][j]
     w_adv = DiagtoCons(w, wdiag_adv, nx)
-    print(w_adv)
     return dt, w_adv
