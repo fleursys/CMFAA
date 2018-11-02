@@ -15,10 +15,10 @@
 \maketitle
 
 \section{Introduction}
-In this report the one-dimensional hydrodynamic equations will be numerically solved by using a finite difference 1st order upwind scheme. The implementation will be checked by using two test cases. First, the sod shock problem, where the initial state has a discontinuity and second the isothermal acoustic wave, where the initial conditions are smooth. 
+In this report the one-dimensional hydrodynamic equations will be numerically solved using a finite difference 1st order upwind scheme. The implementation will be checked with two test cases. First, the sod shock problem, where the initial state has a discontinuity and second the isothermal acoustic wave, where the initial conditions are smooth. For the sod shock problem we will perform a convergence analysis. 
 
-\section{Problem statement and preliminaries}
-The ideal hydrodynamic equations in one dimension are the conservation laws for $\rho$, the mass density, $\rho v$, momentum and $e$ total energy. They can be written in matrix form as:
+\section{Analytic investigation}
+The ideal hydrodynamic equations in one dimension are conservation laws for $\rho$, the mass density, $\rho v$, momentum and $e$ total energy. They can be written in matrix form as:
 \begin{align}
 \partial_{t}\left(\textbf{U}\right) + \partial_{x}\textbf{F}\left(\textbf{U}\right) = 0 \\
 \partial_{t}\begin{pmatrix} \rho \\
@@ -32,10 +32,44 @@ e
 \end{pmatrix} = 0 \label{cons_1D}
 \end{align}
 
-To solve these equations numerically 
+Equation \eqref{cons_1D} can be rewritten in the form $\partial_t \textbf{U} + \textbf{A}\left(\textbf{U}\right)\partial_x \textbf{U}$. With: 
+\begin{align}
+\textbf{A}\left(\textbf{U}\right) = \frac{\partial \textbf{F}}{\partial \textbf{U}} = 
+\begin{pmatrix}
+0 & 1 & 0 \\
+- \left(\frac{3-\gamma}{2}\right)v^{2} & \left(3 - \gamma\right)v & \gamma - 1 \\
+- \gamma \frac{v e}{\rho} + \left(\gamma - 1\right)v^{3} & \gamma \frac{ e}{\rho} - \frac{3}{2}\left(\gamma -1 \right)\rho v^{2} & \gamma\frac{\rho v}{e}
+\end{pmatrix} \label{A}
+\end{align}
+
+To numerically solve this equation we want to find the eigenvalues and eigenvectors of matrix $\textbf{A}$.
+
+The eigenvalues can be computed by solving a similar system of equations, namely the ideal hydrodynamic equations for primitive variables:
+\begin{align*}
+\partial_{t}\begin{pmatrix} \rho \\
+v \\
+P
+\end{pmatrix}
++
+\begin{pmatrix}
+v & \rho & 0 \\
+0 & v & \frac{1}{\rho} \\
+0 & P \gamma & v
+\end{pmatrix}
+\partial_{x}\begin{pmatrix} \rho \\
+v \\
+P\right)
+\end{pmatrix} = 0 \label{cons_1D}
+\end{align}
+
+
+With these eigenvalues the eigenvectors of $\textbf{A}$ can be computed as:
+
+
 \section{Numerical implementation}
 
 \subsection{Results}
+\subsubsection{Sod shock problem}
 
 \subsection{Convergence Analysis}
 
