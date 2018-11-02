@@ -1,4 +1,5 @@
-from TimeIntegration import initialization, IntegrateTime, make_mesh
+from TimeIntegration import initialization, IntegrateTime
+from LFTimeIntegration import IntegrateTimeLF
 from InputVariables import nx, var, ngc
 from FixedVariables import xmin, xmax, tmax, rho, p, v, nsnap
 
@@ -25,13 +26,16 @@ def upwind_solver(nx):
     snap = time_snap
     solution.append(U(x, var, nx))
     while t < tmax:
+        print('t = ', t)
         if t >= snap:
             dt, x = IntegrateTime(x, nx)
             t += dt
             solution.append(U(x, var, nx))
+            print(U(x,var,nx))
             snap += time_snap
         else:
             dt, x = IntegrateTime(x, nx)
+            print(U(x,var,nx))
             t += dt
     solution.append(U(x, var, nx))
     return solution
