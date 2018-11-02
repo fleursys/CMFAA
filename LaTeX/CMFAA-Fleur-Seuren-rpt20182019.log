@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.1)  1 NOV 2018 11:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.1)  2 NOV 2018 16:37
 entering extended mode
 **./CMFAA-Fleur-Seuren-rpt20182019.tex
 (CMFAA-Fleur-Seuren-rpt20182019.tex
@@ -424,66 +424,99 @@ be numerically
  []
 
 
-Overfull \hbox (33.58333pt too wide) in paragraph at lines 18--19
-\OT1/ppl/m/n/12 solved by using a finite difference 1st order upwind scheme. Th
-e implementation
- []
-
-
-Overfull \hbox (8.33543pt too wide) in paragraph at lines 18--19
-\OT1/ppl/m/n/12 where the initial state has a discontinuity and second the isot
-hermal acoustic
+Overfull \hbox (17.9955pt too wide) in paragraph at lines 18--19
+\OT1/ppl/m/n/12 solved using a finite difference 1st order upwind scheme. The i
+mplementation
  []
 
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 22.
+(Font)              scaled to size 12.50409pt on input line 21.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 22.
+(Font)              scaled to size 9.37807pt on input line 21.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 22.
+(Font)              scaled to size 7.29405pt on input line 21.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 22.
+(Font)              scaled to size 12.50409pt on input line 21.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 22.
+(Font)              scaled to size 9.37807pt on input line 21.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 22.
+(Font)              scaled to size 7.29405pt on input line 21.
+
+Overfull \hbox (1.91618pt too wide) in paragraph at lines 21--22
+\OT1/ppl/m/n/12 The ideal hydrodynamic equations in one dimension are conservat
+ion laws
+ []
+
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 33.
-LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 37.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 41.
 [1
 
-{C:/Users/Fleur/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 41.
+{C:/Users/Fleur/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Overfull \hbox (18.04045pt too wide) in paragraph at lines 47--48
+[]\OT1/ppl/m/n/12 The eigenvalues can be computed by solving a similar system o
+f equations,
+ []
 
-(CMFAA-Fleur-Seuren-rpt20182019.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 41.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 41.
+
+! LaTeX Error: \begin{align*} on input line 48 ended by \end{align}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63 \end{align}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Extra \right.
+<argument> ...gin {pmatrix} \rho \\ v \\ P\right )
+                                                   \end {pmatrix} = 0 \label...
+l.63 \end{align}
+                
+I'm ignoring a \right that had no matching \left.
+
+! Extra \right.
+<argument> ...gin {pmatrix} \rho \\ v \\ P\right )
+                                                   \end {pmatrix} = 0 \label...
+l.63 \end{align}
+                
+I'm ignoring a \right that had no matching \left.
+
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 70.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 75.
+[2]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 75.
+ (CMFAA-Fleur-Seuren-rpt20182019.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 75.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 75.
 Package rerunfilecheck Info: File `CMFAA-Fleur-Seuren-rpt20182019.out' has not 
 changed.
-(rerunfilecheck)             Checksum: 6AC622A0AC05112F6C726CF83BD8EAC0;306.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 41.
+(rerunfilecheck)             Checksum: ED913020B969D7BB1BF49FE05AD773A0;370.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 75.
  ) 
 Here is how much of TeX's memory you used:
- 6637 strings out of 492970
- 97275 string characters out of 3126594
- 192773 words of memory out of 3000000
- 10405 multiletter control sequences out of 15000+200000
- 29031 words of font info for 83 fonts, out of 3000000 for 9000
+ 6647 strings out of 492970
+ 97380 string characters out of 3126594
+ 195869 words of memory out of 3000000
+ 10408 multiletter control sequences out of 15000+200000
+ 29786 words of font info for 86 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,14n,28p,395b,336s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,15n,28p,454b,346s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Fleur/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
 }<C:/Users/Fleur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmex10.pfb><C:/Users/Fleur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmr10.pfb><C:/Users/Fleur/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/mathpazo/fplmri.pfb><C:/Users/Fleur/AppData/Local/Programs/MiKT
-eX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/Fleur/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/Fleur/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on CMFAA-Fleur-Seuren-rpt20182019.pdf (2 pages, 66002 bytes).
+ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Fleur/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/mathpazo/fplmri.pfb><C:/Users/Fleur/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/Fleur/AppData
+/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/Fleur/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on CMFAA-Fleur-Seuren-rpt20182019.pdf (2 pages, 78464 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 8 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 75 PDF objects out of 1000 (max. 8388607)
+ 12 named destinations out of 1000 (max. 500000)
+ 49 words of extra memory for PDF output out of 10000 (max. 10000000)
 
