@@ -21,7 +21,7 @@ def chrono(start, end):
     time = end-start
     return time
 
-print("time elapsed = ", chrono(start,end))
+print("time elapsed = ",chrono(start,end))
 
 if plot == 'solution':
     X = make_mesh(xmin, xmax, nx)
