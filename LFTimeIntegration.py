@@ -23,4 +23,5 @@ def IntegrateTimeLF(x,nx):
     for i in range(ngc, nx + ngc):
         for j in range(nw):
             w_adv[i][j] = (w[i+1][j] + w[i-1][j])/2 - (dt/(2*dx))*(flux(w[i+1])[j] - flux(w[i-1])[j])
+    print(w_adv)
     return dt, w_adv
