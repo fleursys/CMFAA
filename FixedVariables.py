@@ -2,6 +2,7 @@ import numpy as np
 from InputVariables import iniCond
 
 gamma = 1.4
+G = 0.4
 nw = 3
 nsnap = 30
 
@@ -26,7 +27,7 @@ def rhov(w):
     return rv
 
 def e(w):
-    return np.dot(w[1:-1], w[1:-1])*rho(w)/2 + w[-1]/(gamma-1)
+    return np.dot(w[1:-1], w[1:-1])*rho(w)/2 + w[-1]/(G)
 
 # computes the primitive variables and the speed of sound from an array w of primitive variables (dimension nw)
 
@@ -35,7 +36,7 @@ def v(w):
     return speed
 
 def p(w):
-    return (gamma-1)*(-(np.dot(w[1:-1], w[1:-1])/(2*rho(w))) + w[-1])
+    return (G)*(-(np.dot(w[1:-1], w[1:-1])/(2*rho(w))) + w[-1])
 
 def csound(w):
     return np.sqrt((gamma*p(w)/rho(w)))
