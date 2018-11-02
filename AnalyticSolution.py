@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 from FixedVariables import gamma
 from TimeIntegration import make_mesh
 from FixedVariables import xmax, xmin
@@ -8,6 +7,7 @@ from InputVariables import var
 G = gamma
 Ms = 1.44061
 
+# compute the pressure, density, velocity and the speed of sound from an 3-dimensional array of primitive variables.
 def p_(w):
     return w[-1]
 
@@ -20,6 +20,7 @@ def v_(w):
 def a_(w):
     return np.sqrt(G*p_(w)/rho_(w))
 
+# computes the values of density, velocity and pressure in the five different regions
 def RegionR():
     return [1, 0, 1]
 
@@ -52,6 +53,7 @@ def RegionE(i, t):
     E[0] = (G*p_(E))/(np.square(a_(L) - (G-1)*v_(E)/2))
     return E
 
+# computes for time t the analytic solution as a (nx, 3)-dimensional array
 def analytic_solution(nx,t):
     x = make_mesh(xmin, xmax, nx)
     x.pop(0)
@@ -74,6 +76,7 @@ def analytic_solution(nx,t):
             a_sol.append(R)
     return a_sol
 
+# computes from the analytic solution the values for density, velocity and pressure
 def analytic_solver(nx, t):
     A = analytic_solution(nx, t)
     if var == 'density':
@@ -84,14 +87,3 @@ def analytic_solver(nx, t):
         a = [A[i][2] for i in range(nx)]
     return a
 
-
-'''
-x = make_mesh(xmin, xmax, 100)
-x.pop(0)
-x.pop(-1)
-
-u = AnalyticSolution(100, 0.2)
-
-plt.plot(x,u,marker='.')
-plt.show()
-'''
