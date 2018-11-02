@@ -1,10 +1,13 @@
-nx = 200
+nx = 100
 ngc = 1
+
 #iniCond = 'acoustic'
 iniCond = 'shock'
-#var = 'density'
+
+var = 'density'
 #var = 'velocity'
-var = 'pressure'
+#var = 'pressure'
+
 #cvAnalysis = 'true'
 cvAnalysis = 'false'
 
