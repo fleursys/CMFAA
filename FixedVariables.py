@@ -30,7 +30,6 @@ def e(w):
     return np.dot(w[1:-1], w[1:-1])*rho(w)/2 + w[-1]/(G)
 
 # computes the primitive variables and the speed of sound from an array w of primitive variables (dimension nw)
-
 def v(w):
     speed = [i/rho(w) for i in w[1:-1]]
     return speed
