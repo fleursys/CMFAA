@@ -1,4 +1,4 @@
-nx = 100
+nx = 200
 ngc = 1
 #iniCond = 'acoustic'
 iniCond = 'shock'
