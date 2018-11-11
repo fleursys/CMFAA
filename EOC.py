@@ -17,11 +17,11 @@ def N(nu):
 
 # computes the empirical order of convergence for nu
 def EOC(nu):
-    num1 = upwind_solver(N(nu-1))[-1]
+    num1 = upwind_solver(N(nu-1))[-2][-1]
     ana1 = analytic_solver(N(nu-1), 0.2)
-    num2 = upwind_solver(N(nu))[-1]
-    ana2 = analytic_solver(N(nu), 0.2)
     err1 = max_error(num1, ana1, N(nu-1))
+    num2 = upwind_solver(N(nu))[-2][-1]
+    ana2 = analytic_solver(N(nu), 0.2)
     err2 = max_error(num2, ana2, N(nu))
     eoc = np.log2(err2/err1) / np.log2(N(nu - 1)/N(nu))
     return eoc
