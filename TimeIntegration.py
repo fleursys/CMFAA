@@ -54,8 +54,8 @@ def getbc(x):
         return x
     elif bc == 'periodic':
         for i in range(ngc):
-            x[i] = x[-ngc-1]
-            x[-(i+1)] = x[ngc]
+            x[i] = x[-ngc-1-i]
+            x[-(i+1)] = x[ngc+i]
         return x
     else:
         print('no valid boundary condition')
