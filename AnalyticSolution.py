@@ -79,7 +79,7 @@ def analytic_solution(nx,t):
 # computes from the analytic solution the values for density, velocity and pressure
 def analytic_solver(nx, t):
     A = analytic_solution(nx, t)
-    if var == 'density':
+    if var == 'mass density':
         a = [A[i][0] for i in range(nx)]
     elif var == 'velocity':
         a = [A[i][1] for i in range(nx)]
