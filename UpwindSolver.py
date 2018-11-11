@@ -4,7 +4,7 @@ from FixedVariables import tmax, rho, p, v, nsnap
 
 def U(x,var, nx):
     u = []
-    if var == 'density':
+    if var == 'mass density':
         for i in range(ngc, nx + ngc):
             u.append(rho(x[i]))
     elif var == 'velocity':
