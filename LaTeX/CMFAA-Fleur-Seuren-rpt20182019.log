@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.1)  2 NOV 2018 16:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.1)  2 NOV 2018 23:39
 entering extended mode
 **./CMFAA-Fleur-Seuren-rpt20182019.tex
 (CMFAA-Fleur-Seuren-rpt20182019.tex
@@ -20,10 +20,15 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
+("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\preprint\fullpage.
+sty"
+Package: fullpage 1999/02/23 1.1 (PWD)
+\FP@margin=\skip43
+)
 ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.st
 y"
 Package: amsmath 2017/09/02 v2.17a AMS math features
-\@mathmargin=\skip43
+\@mathmargin=\skip44
 
 For additional information on amsmath, use the `?' option.
 
@@ -78,8 +83,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \totwidth@=\dimen110
 \lineht@=\dimen111
 \@envbody=\toks17
-\multlinegap=\skip44
-\multlinetaggap=\skip45
+\multlinegap=\skip45
+\multlinetaggap=\skip46
 \mathdisplay@stack=\toks18
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
@@ -103,9 +108,9 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@headfont=\toks21
 \thm@notefont=\toks22
 \thm@headpunct=\toks23
-\thm@preskip=\skip46
-\thm@postskip=\skip47
-\thm@headsep=\skip48
+\thm@preskip=\skip47
+\thm@postskip=\skip48
+\thm@headsep=\skip49
 \dth@everypar=\toks24
 ) ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.st
 y"
@@ -163,6 +168,32 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen113
 \Gin@req@width=\dimen114
+)
+("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\subcaption
+.sty"
+Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
+
+("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\caption.st
+y"
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+
+("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\caption3.s
+ty"
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen115
+\captionmargin@=\dimen116
+\captionwidth=\dimen117
+\caption@tempdima=\dimen118
+\caption@indent=\dimen119
+\caption@parindent=\dimen120
+\caption@hangindent=\dimen121
+)
+\c@caption@flags=\count102
+\c@ContinuedFloat=\count103
+)
+\c@subfigure=\count104
+\c@subtable=\count105
 )
 ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyperref.
 sty"
@@ -226,9 +257,9 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 .sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
-\@linkdim=\dimen115
-\Hy@linkcounter=\count102
-\Hy@pagecounter=\count103
+\@linkdim=\dimen122
+\Hy@linkcounter=\count106
+\Hy@pagecounter=\count107
 
 ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.de
 f"
@@ -236,7 +267,7 @@ File: pd1enc.def 2018/09/30 v6.88a Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count104
+\Hy@SavedSpaceFactor=\count108
 
 ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\hyperref.
 cfg"
@@ -249,16 +280,16 @@ Package hyperref Info: Plain pages OFF on input line 4550.
 Package hyperref Info: Backreferencing OFF on input line 4555.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4788.
-\c@Hy@tempcnt=\count105
+\c@Hy@tempcnt=\count109
  ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5141.
-\XeTeXLinkMargin=\dimen116
-\Fld@menulength=\count106
-\Field@Width=\dimen117
-\Fld@charsize=\dimen118
+\XeTeXLinkMargin=\dimen123
+\Fld@menulength=\count110
+\Field@Width=\dimen124
+\Fld@charsize=\dimen125
 Package hyperref Info: Hyper figures OFF on input line 6396.
 Package hyperref Info: Link nesting OFF on input line 6401.
 Package hyperref Info: Hyper index ON on input line 6404.
@@ -268,17 +299,17 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6421.
 Package hyperref Info: PDF/A mode OFF on input line 6426.
 LaTeX Info: Redefining \ref on input line 6466.
 LaTeX Info: Redefining \pageref on input line 6470.
-\Hy@abspage=\count107
-\c@Item=\count108
-\c@Hfootnote=\count109
+\Hy@abspage=\count111
+\c@Item=\count112
+\c@Hfootnote=\count113
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex.d
 ef"
 File: hpdftex.def 2018/09/30 v6.88a Hyperref driver for pdfTeX
-\Fld@listcount=\count110
-\c@bookmark@seq@number=\count111
+\Fld@listcount=\count114
+\c@bookmark@seq@number=\count115
 
 ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\rerunfile
 check.sty"
@@ -286,7 +317,7 @@ Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip49
+\Hy@SectionHShift=\skip50
 )
 ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\subfiles\subfiles.
 sty"
@@ -299,6 +330,64 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks27
 \verbatim@in@stream=\read1
 ))
+("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\algorithm2e\algori
+thm2e.sty"
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count116
+
+("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip51
+
+("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ifoddpage\ifoddpag
+e.sty"
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count117
+)
+("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\xspace.sty"
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\relsize\relsize.st
+y"
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip52
+\skiplinenumber=\skip53
+\skiprule=\skip54
+\skiphlne=\skip55
+\skiptext=\skip56
+\skiplength=\skip57
+\algomargin=\skip58
+\skipalgocfslide=\skip59
+\algowidth=\dimen126
+\inoutsize=\dimen127
+\inoutindent=\dimen128
+\interspacetitleruled=\dimen129
+\interspacealgoruled=\dimen130
+\interspacetitleboxruled=\dimen131
+\algocf@ruledwidth=\skip60
+\algocf@inoutbox=\box28
+\algocf@inputbox=\box29
+\AlCapSkip=\skip61
+\AlCapHSkip=\skip62
+\algoskipindent=\skip63
+\algocf@nlbox=\box30
+\algocf@hangingbox=\box31
+\algocf@untilbox=\box32
+\algocf@skipuntil=\skip64
+\algocf@capbox=\box33
+\algocf@lcaptionbox=\skip65
+\algoheightruledefault=\skip66
+\algoheightrule=\skip67
+\algotitleheightruledefault=\skip68
+\algotitleheightrule=\skip69
+\c@algocfline=\count118
+\c@algocfproc=\count119
+\c@algocf=\count120
+\algocf@algoframe=\box34
+\algocf@algobox=\box35
+)
 ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\mathpazo.st
 y"
 Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS) 
@@ -306,21 +395,21 @@ Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS)
 ) (CMFAA-Fleur-Seuren-rpt20182019.aux)
 \openout1 = `CMFAA-Fleur-Seuren-rpt20182019.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 20.
 
 ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1ppl.fd"
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
@@ -328,16 +417,16 @@ File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mk
 ii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count112
-\scratchdimen=\dimen119
-\scratchbox=\box28
-\nofMPsegments=\count113
-\nofMParguments=\count114
+\scratchcounter=\count121
+\scratchdimen=\dimen132
+\scratchbox=\box36
+\nofMPsegments=\count122
+\nofMParguments=\count123
 \everyMPshowfont=\toks28
-\MPscratchCnt=\count115
-\MPscratchDim=\dimen120
-\MPnumerator=\count116
-\makeMPintoPDFobject=\count117
+\MPscratchCnt=\count124
+\MPscratchDim=\dimen133
+\MPnumerator=\count125
+\makeMPintoPDFobject=\count126
 \everyMPtoPDFconversion=\toks29
 )
 ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-
@@ -355,8 +444,11 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-\AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 14.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\AtBeginShipoutBox=\box37
+Package hyperref Info: Link coloring OFF on input line 20.
 
 ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.s
 ty"
@@ -366,105 +458,115 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 estring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count118
+\c@section@level=\count127
 )
-LaTeX Info: Redefining \ref on input line 14.
-LaTeX Info: Redefining \pageref on input line 14.
-LaTeX Info: Redefining \nameref on input line 14.
+LaTeX Info: Redefining \ref on input line 20.
+LaTeX Info: Redefining \pageref on input line 20.
+LaTeX Info: Redefining \nameref on input line 20.
  (CMFAA-Fleur-Seuren-rpt20182019.out)
 (CMFAA-Fleur-Seuren-rpt20182019.out)
 \@outlinefile=\write3
 \openout3 = `CMFAA-Fleur-Seuren-rpt20182019.out'.
 
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 16.
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 22.
 
 
 ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\omlzplm.fd"
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 16.
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 22.
 
  ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\omszplm.fd
 "
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 16.
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 22.
 
 
 ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\omxzplm.fd"
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 15.0049pt on input line 16.
+(Font)              scaled to size 15.0049pt on input line 22.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 16.
+(Font)              scaled to size 10.42007pt on input line 22.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 16.
+(Font)              scaled to size 8.33606pt on input line 22.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 15.0049pt on input line 16.
+(Font)              scaled to size 15.0049pt on input line 22.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 16.
+(Font)              scaled to size 10.42007pt on input line 22.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 16.
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 16.
+(Font)              scaled to size 8.33606pt on input line 22.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 22.
 
  ("C:\Users\Fleur\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1zplm.fd
 "
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
+! Missing } inserted.
+<inserted text> 
+                }
+l.22 
+     
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
 
-LaTeX Warning: No \author given.
+! Missing { inserted.
+<inserted text> 
+                {
+l.22 
+     
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
 
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 17.
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 23.
 
-Overfull \hbox (26.23929pt too wide) in paragraph at lines 18--19
+Overfull \hbox (0.543pt too wide) in paragraph at lines 24--25
 \OT1/ppl/m/n/12 In this report the one-dimensional hydrodynamic equations will 
-be numerically
+be numerically solved
  []
 
 
-Overfull \hbox (17.9955pt too wide) in paragraph at lines 18--19
-\OT1/ppl/m/n/12 solved using a finite difference 1st order upwind scheme. The i
-mplementation
+Overfull \hbox (0.60298pt too wide) in paragraph at lines 24--25
+\OT1/ppl/m/n/12 using a finite difference 1st order upwind scheme. The implemen
+tation will be checked
+ []
+
+
+Overfull \hbox (17.12677pt too wide) in paragraph at lines 24--25
+\OT1/ppl/m/n/12 with two test cases. First, the sod shock problem, where the in
+itial state has a discontinuity
  []
 
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 21.
+(Font)              scaled to size 12.50409pt on input line 27.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 21.
+(Font)              scaled to size 9.37807pt on input line 27.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 21.
+(Font)              scaled to size 7.29405pt on input line 27.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 21.
+(Font)              scaled to size 12.50409pt on input line 27.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 21.
+(Font)              scaled to size 9.37807pt on input line 27.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 21.
-
-Overfull \hbox (1.91618pt too wide) in paragraph at lines 21--22
-\OT1/ppl/m/n/12 The ideal hydrodynamic equations in one dimension are conservat
-ion laws
- []
-
+(Font)              scaled to size 7.29405pt on input line 27.
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 33.
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 39.
 [1
 
 {C:/Users/Fleur/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (18.04045pt too wide) in paragraph at lines 47--48
-[]\OT1/ppl/m/n/12 The eigenvalues can be computed by solving a similar system o
-f equations,
- []
 
-
-! LaTeX Error: \begin{align*} on input line 48 ended by \end{align}.
+! LaTeX Error: \begin{align*} on input line 54 ended by \end{align}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.63 \end{align}
+l.69 \end{align}
                 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -472,51 +574,429 @@ or  <return>  to continue without it.
 
 ! Extra \right.
 <argument> ...gin {pmatrix} \rho \\ v \\ P\right )
-                                                   \end {pmatrix} = 0 \label...
-l.63 \end{align}
+                                                   \end {pmatrix} = 0. \labe...
+l.69 \end{align}
                 
 I'm ignoring a \right that had no matching \left.
 
 ! Extra \right.
 <argument> ...gin {pmatrix} \rho \\ v \\ P\right )
-                                                   \end {pmatrix} = 0 \label...
-l.63 \end{align}
+                                                   \end {pmatrix} = 0. \labe...
+l.69 \end{align}
                 
 I'm ignoring a \right that had no matching \left.
 
-LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 70.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 75.
+! Extra }, or forgotten \right.
+<template> }
+            $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
+l.108 \end{align}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing \right. inserted.
+<inserted text> 
+                \right .
+l.108 \end{align}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.108 \end{align}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Extra }, or forgotten \right.
+<template> }
+            $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
+l.108 \end{align}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing \right. inserted.
+<inserted text> 
+                \right .
+l.108 \end{align}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.108 \end{align}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Extra }, or forgotten \right.
+<template> }
+            $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
+l.118 \end{align}
+                 .
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing \right. inserted.
+<inserted text> 
+                \right .
+l.118 \end{align}
+                 .
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.118 \end{align}
+                 .
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Extra }, or forgotten \right.
+<template> }
+            $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
+l.118 \end{align}
+                 .
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing \right. inserted.
+<inserted text> 
+                \right .
+l.118 \end{align}
+                 .
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.118 \end{align}
+                 .
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
 [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 75.
- (CMFAA-Fleur-Seuren-rpt20182019.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 75.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 75.
-Package rerunfilecheck Info: File `CMFAA-Fleur-Seuren-rpt20182019.out' has not 
-changed.
-(rerunfilecheck)             Checksum: ED913020B969D7BB1BF49FE05AD773A0;370.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 75.
+Overfull \hbox (35.64963pt too wide) detected at line 133
+[][] 
+ []
+
+
+Overfull \hbox (9.40843pt too wide) in paragraph at lines 121--133
+[]\OT1/ppl/m/n/12 So, to summerize, the numerical scheme we use to solve the hy
+drodynamic equations
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--133
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 137.
+
+! LaTeX Error: Unknown float option `H'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.140 \begin{figure}[H]
+                       
+Option `H' ignored and `p' used.
+
+<rs_1.png, id=72, 462.528pt x 344.0052pt>
+File: rs_1.png Graphic file (type png)
+<use rs_1.png>
+Package pdftex.def Info: rs_1.png  used on input line 143.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+<rs_2.png, id=74, 462.528pt x 344.0052pt>
+File: rs_2.png Graphic file (type png)
+<use rs_2.png>
+Package pdftex.def Info: rs_2.png  used on input line 148.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+<rs_3.png, id=75, 462.528pt x 344.0052pt>
+File: rs_3.png Graphic file (type png)
+<use rs_3.png>
+Package pdftex.def Info: rs_3.png  used on input line 153.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+
+! LaTeX Error: Unknown float option `H'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.158 \begin{figure}[H]
+                       
+Option `H' ignored and `p' used.
+
+<rvs_1.png, id=76, 462.528pt x 344.0052pt>
+File: rvs_1.png Graphic file (type png)
+<use rvs_1.png>
+Package pdftex.def Info: rvs_1.png  used on input line 161.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+<rvs_2.png, id=77, 462.528pt x 344.0052pt>
+File: rvs_2.png Graphic file (type png)
+<use rvs_2.png>
+Package pdftex.def Info: rvs_2.png  used on input line 166.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+<rvs_3.png, id=78, 462.528pt x 344.0052pt>
+File: rvs_3.png Graphic file (type png)
+<use rvs_3.png>
+Package pdftex.def Info: rvs_3.png  used on input line 171.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+
+! LaTeX Error: Unknown float option `H'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.176 \begin{figure}[H]
+                       
+Option `H' ignored and `p' used.
+
+<ps_1.png, id=79, 462.528pt x 344.0052pt>
+File: ps_1.png Graphic file (type png)
+<use ps_1.png>
+Package pdftex.def Info: ps_1.png  used on input line 179.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+<ps_2.png, id=80, 462.528pt x 344.0052pt>
+File: ps_2.png Graphic file (type png)
+<use ps_2.png>
+Package pdftex.def Info: ps_2.png  used on input line 184.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+<ps_3.png, id=81, 462.528pt x 344.0052pt>
+File: ps_3.png Graphic file (type png)
+<use ps_3.png>
+Package pdftex.def Info: ps_3.png  used on input line 189.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+
+! LaTeX Error: Unknown float option `H'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.199 \begin{figure}[H]
+                       
+Option `H' ignored and `p' used.
+
+<ra_1.png, id=85, 462.528pt x 344.0052pt>
+File: ra_1.png Graphic file (type png)
+<use ra_1.png>
+Package pdftex.def Info: ra_1.png  used on input line 202.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+<ra_2.png, id=86, 462.528pt x 344.0052pt>
+File: ra_2.png Graphic file (type png)
+<use ra_2.png>
+Package pdftex.def Info: ra_2.png  used on input line 207.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+<ra_3.png, id=87, 462.528pt x 344.0052pt>
+File: ra_3.png Graphic file (type png)
+<use ra_3.png>
+Package pdftex.def Info: ra_3.png  used on input line 212.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+
+! LaTeX Error: Unknown float option `H'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.217 \begin{figure}[H]
+                       
+Option `H' ignored and `p' used.
+
+<rva_1.png, id=88, 462.528pt x 344.0052pt>
+File: rva_1.png Graphic file (type png)
+<use rva_1.png>
+Package pdftex.def Info: rva_1.png  used on input line 220.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+<rva_2.png, id=89, 462.528pt x 344.0052pt>
+File: rva_2.png Graphic file (type png)
+<use rva_2.png>
+Package pdftex.def Info: rva_2.png  used on input line 225.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+<rva_3.png, id=90, 462.528pt x 344.0052pt>
+File: rva_3.png Graphic file (type png)
+<use rva_3.png>
+Package pdftex.def Info: rva_3.png  used on input line 230.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+
+! LaTeX Error: Unknown float option `H'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.235 \begin{figure}[H]
+                       
+Option `H' ignored and `p' used.
+
+<pa_1.png, id=91, 462.528pt x 344.0052pt>
+File: pa_1.png Graphic file (type png)
+<use pa_1.png>
+Package pdftex.def Info: pa_1.png  used on input line 238.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+<pa_2.png, id=92, 462.528pt x 344.0052pt>
+File: pa_2.png Graphic file (type png)
+<use pa_2.png>
+Package pdftex.def Info: pa_2.png  used on input line 243.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+<pa_3.png, id=93, 462.528pt x 344.0052pt>
+File: pa_3.png Graphic file (type png)
+<use pa_3.png>
+Package pdftex.def Info: pa_3.png  used on input line 248.
+(pdftex.def)             Requested size: 135.89174pt x 101.07121pt.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.91925pt on input line 253.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 253.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.91925pt on input line 253.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 253.
+
+Overfull \hbox (51.9378pt too wide) in paragraph at lines 256--257
+\OT1/ppl/m/n/12 Now that we have our numerical implementation it is important t
+o validate this implementation.
+ []
+
+[3] [4 <./rs_1.png> <./rs_2.png> <./rs_3.png> <./rvs_1.png> <./rvs_2.png> <./rv
+s_3.png> <./ps_1.png> <./ps_2.png> <./ps_3.png> <./ra_1.png> <./ra_2.png> <./ra
+_3.png>]
+
+! LaTeX Error: Unknown float option `H'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.278 \begin{figure}[H]
+                       
+Option `H' ignored and `p' used.
+
+<eoc.png, id=128, 462.528pt x 344.0052pt>
+File: eoc.png Graphic file (type png)
+<use eoc.png>
+Package pdftex.def Info: eoc.png  used on input line 279.
+(pdftex.def)             Requested size: 452.9679pt x 336.91283pt.
+
+! LaTeX Error: Unknown float option `H'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.289 \begin{figure}[H]
+                       
+Option `H' ignored and `p' used.
+
+<dissipation.png, id=130, 481.8pt x 358.33875pt>
+File: dissipation.png Graphic file (type png)
+<use dissipation.png>
+Package pdftex.def Info: dissipation.png  used on input line 290.
+(pdftex.def)             Requested size: 452.9679pt x 336.90408pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 299.
+[5] [6 <./rva_1.png> <./rva_2.png> <./rva_3.png> <./pa_1.png> <./pa_2.png> <./p
+a_3.png> <./eoc.png>] [7 <./dissipation.png>] [8]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 299.
+
+(CMFAA-Fleur-Seuren-rpt20182019.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 299.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 299.
+
+
+Package rerunfilecheck Warning: File `CMFAA-Fleur-Seuren-rpt20182019.out' has c
+hanged.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `CMFAA-Fleur-Seuren-rpt20182019.out'
+:
+(rerunfilecheck)             Before: F82C04678C9C43F2E296BF246E65DC4A;706
+(rerunfilecheck)             After:  0A332E66A791F9DFD84AF91EE57BB446;716.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 299.
  ) 
 Here is how much of TeX's memory you used:
- 6647 strings out of 492970
- 97380 string characters out of 3126594
- 195869 words of memory out of 3000000
- 10408 multiletter control sequences out of 15000+200000
- 29786 words of font info for 86 fonts, out of 3000000 for 9000
+ 8948 strings out of 492970
+ 136470 string characters out of 3126594
+ 248524 words of memory out of 3000000
+ 12619 multiletter control sequences out of 15000+200000
+ 39626 words of font info for 112 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,15n,28p,454b,346s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/Fleur/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
-}<C:/Users/Fleur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmex10.pfb><C:/Users/Fleur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmr10.pfb><C:/Users/Fleur/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Fleur/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/mathpazo/fplmri.pfb><C:/Users/Fleur/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/Fleur/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/Fleur/
-AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on CMFAA-Fleur-Seuren-rpt20182019.pdf (2 pages, 78464 bytes).
+ 42i,16n,40p,587b,395s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{subsubsection.3.3.3} has been referenced but does
+ not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.3.2} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.3.1} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.3.3} has been referenced but does not ex
+ist, replaced by a fixed one
+
+{C:/Users/Fleur/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<
+C:/Users/Fleur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmex10.pfb><C:/Users/Fleur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmmi10.pfb><C:/Users/Fleur/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Fleur/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Fleur/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmr.pfb><C:/Users/Fleur/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmri.pfb><C:/Users/
+Fleur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:
+/Users/Fleur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.
+pfb><C:/Users/Fleur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/
+uplri8a.pfb>
+Output written on CMFAA-Fleur-Seuren-rpt20182019.pdf (8 pages, 422192 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
- 12 named destinations out of 1000 (max. 500000)
- 49 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 203 PDF objects out of 1000 (max. 8388607)
+ 42 named destinations out of 1000 (max. 500000)
+ 181 words of extra memory for PDF output out of 10000 (max. 10000000)
 
