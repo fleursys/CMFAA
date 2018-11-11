@@ -16,5 +16,5 @@ def cmax(lam, nx):
 
 def computeTimeStep(lam, dx, nx):
     lamda = cmax(lam, nx)
-    return dx/(lamda)
+    return 0.1 * dx/(lamda)
 
