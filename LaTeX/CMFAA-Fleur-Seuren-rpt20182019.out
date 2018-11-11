@@ -3,4 +3,8 @@
 \BOOKMARK [1][-]{section.3}{Numerical implementation}{}% 3
 \BOOKMARK [2][-]{subsection.3.1}{Results}{section.3}% 4
 \BOOKMARK [3][-]{subsubsection.3.1.1}{Sod shock problem}{subsection.3.1}% 5
-\BOOKMARK [2][-]{subsection.3.2}{Convergence Analysis}{section.3}% 6
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Linear acoustic wave problem}{subsection.3.1}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Analysis of the method}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Computational effort}{subsection.3.2}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Empirical Order of Convergence}{subsection.3.2}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Dissipation of the method}{subsection.3.2}% 10
